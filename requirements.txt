@@ -1,0 +1,32 @@
+# ============================================================
+#  Autonomous Email Intelligence Agent — Full Requirements
+#  Install all dependencies with:
+#      pip install -r requirements.txt
+# ============================================================
+
+# ── Web Framework (Backend) ──────────────────────────────────
+fastapi==0.115.0
+uvicorn[standard]==0.30.6          # ASGI server with websocket + reload support
+
+# ── Data Validation ──────────────────────────────────────────
+pydantic==2.9.2                    # Request/response schema validation
+
+# ── LangChain + Ollama (AI Intent & Draft Generation) ────────
+# Agent degrades gracefully to rule-based mode without LangChain
+langchain==0.3.7
+langchain-ollama==0.2.0
+langchain-core==0.3.17
+
+# ── Gmail API (Email Read & Send) ────────────────────────────
+# Agent runs in mock/demo mode without credentials.json
+google-api-python-client==2.147.0  # Gmail REST API client
+google-auth-httplib2==0.2.0        # HTTP transport for Google Auth
+google-auth-oauthlib==1.2.1        # OAuth 2.0 flow for Gmail
+
+# ── Frontend (Streamlit Dashboard) ───────────────────────────
+streamlit==1.39.0                  # Interactive UI dashboard
+requests==2.32.3                   # HTTP client for frontend → backend calls
+
+# ── Utilities ────────────────────────────────────────────────
+python-dotenv==1.0.1               # Load .env config (API keys, paths)
+httpx==0.27.2                      # Async HTTP client used internally
